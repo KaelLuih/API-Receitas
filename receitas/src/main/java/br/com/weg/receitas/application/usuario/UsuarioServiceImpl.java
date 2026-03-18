@@ -6,7 +6,6 @@ import br.com.weg.receitas.application.usuario.mapper.UsuarioMapper;
 import br.com.weg.receitas.domain.usuario.Usuario;
 import br.com.weg.receitas.domain.usuario.UsuarioRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 

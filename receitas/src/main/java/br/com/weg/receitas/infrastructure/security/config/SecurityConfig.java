@@ -1,4 +1,4 @@
-package br.com.weg.receitas.application.usuario;
+package br.com.weg.receitas.infrastructure.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

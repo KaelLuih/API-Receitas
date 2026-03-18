@@ -22,12 +22,12 @@ public class ReceitaMapper {
                 .nome(requisicao.nome())
                 .descricao(requisicao.descricao())
                 .tempoPreparo(requisicao.tempoPreparo())
-                .porcoes(Double.valueOf(requisicao.porcoes()))
-                .ingredientes(requisicao.ingredienteRespostaDtoList().stream()
-                        .map(ingDto -> ingredienteMapper.toEntity(ingDto))
+                .porcoes(requisicao.porcoes())
+                .ingredientes(requisicao.ingredientes().stream()
+                        .map(ingredienteMapper::toEntity)
                         .toList())
-                .passos(requisicao.PassoRepostaDto().stream()
-                        .map(passoDto -> passoMapper.toEntity(passoDto))
+                .passos(requisicao.passos().stream()
+                        .map(passoMapper::toEntity)
                         .toList())
                 .build();
     }

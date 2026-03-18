@@ -3,7 +3,6 @@ package br.com.weg.receitas.domain.ingrediente;
 import br.com.weg.receitas.domain.receita.Receita;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Entity
 @Table(name = "ingrediente")
