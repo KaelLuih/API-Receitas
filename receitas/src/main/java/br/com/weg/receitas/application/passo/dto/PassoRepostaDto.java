@@ -1,4 +1,9 @@
 package br.com.weg.receitas.application.passo.dto;
 
-public record PassoRepostaDto() {
+import br.com.weg.receitas.domain.receita.Receita;
+
+public record PassoRepostaDto(long id,
+                              Integer ordem,
+                              String descricao,
+                              Receita receita) {
 }

@@ -3,10 +3,7 @@ package br.com.weg.receitas.domain.receita;
 import br.com.weg.receitas.domain.ingrediente.Ingrediente;
 import br.com.weg.receitas.domain.passo.Passo;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -16,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Receita {
 
     @Id
@@ -35,4 +33,6 @@ public class Receita {
 
     @OneToMany(mappedBy = "receita", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Passo> passos;
+
+
 }
