@@ -1,4 +1,4 @@
 package br.com.weg.receitas.application.usuario.dto;
 
-public class UsuarioRespostaDto {
+public record UsuarioRespostaDto() {
 }

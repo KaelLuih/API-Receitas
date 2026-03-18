@@ -1,4 +1,4 @@
 package br.com.weg.receitas.application.passo.dto;
 
-public class PassoRepostaDto {
+public record PassoRepostaDto() {
 }
