@@ -1,5 +1,6 @@
 package br.com.weg.receitas.domain.ingrediente;
 
+import br.com.weg.receitas.domain.receita.Receita;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +26,9 @@ public class Ingrediente {
     @Column(nullable = false)
     double quantidade;
 
+    @ManyToOne
+    @JoinColumn(name = "receita_id")
+    private Receita receita;
 
     public Ingrediente(String nome, double quantidade) {
         this.nome = nome;
