@@ -1,0 +1,42 @@
+package br.com.weg.receitas.infrastructure.receita;
+
+import br.com.weg.receitas.application.receita.ReceitaServiceImpl;
+import br.com.weg.receitas.application.receita.dto.ReceitaRequisicaoDto;
+import br.com.weg.receitas.application.receita.dto.ReceitaRespostaDto;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/receita")
+public class ReceitaController {
+
+    private ReceitaServiceImpl service;
+
+    @GetMapping("/{id}")
+    public ReceitaRespostaDto buscarReceitaID(@PathVariable Long id){
+        return service.buscarPorId(id);
+    }
+    @GetMapping
+    public List<ReceitaRespostaDto> listarReceitas(){
+        return service.listarReceitas();
+    }
+
+    @PostMapping
+    public ReceitaRespostaDto adicionarReceita(@RequestBody ReceitaRequisicaoDto receita){
+        return service.salvarReceita(receita);
+    }
+
+    @PutMapping("/{id}")
+    public ReceitaRespostaDto atualizarReceita(@PathVariable Long id, @RequestBody ReceitaRequisicaoDto receita){
+        return service.atualizarReceita(id, receita);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletarReceita(@PathVariable Long id){
+        service.deletarReceita(id);
+    }
+}
