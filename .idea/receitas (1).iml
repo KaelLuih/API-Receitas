@@ -19,6 +19,11 @@
         <SOURCES />
       </library>
     </orderEntry>
+<<<<<<< HEAD
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.2.5" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.2.5" level="project" />
+=======
+>>>>>>> a47fb38031886cee58d7b27975808a6819daff84
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
