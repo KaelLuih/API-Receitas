@@ -1,5 +1,6 @@
 package br.com.weg.receitas.application.ingrediente.mapper;
 
+import br.com.weg.receitas.application.ingrediente.dto.IngredienteRequisicaoDto;
 import br.com.weg.receitas.application.ingrediente.dto.IngredienteRespostaDto;
 import br.com.weg.receitas.domain.ingrediente.Ingrediente;
 import org.springframework.stereotype.Component;
@@ -9,7 +10,7 @@ import java.util.List;
 @Component
 public class IngredienteMapper {
 
-public Ingrediente toEntity(IngredienteRespostaDto requisicao){
+public Ingrediente toEntity(IngredienteRequisicaoDto requisicao){
     return Ingrediente.builder()
             .nome(requisicao.nome())
             .quantidade(requisicao.quantidade())

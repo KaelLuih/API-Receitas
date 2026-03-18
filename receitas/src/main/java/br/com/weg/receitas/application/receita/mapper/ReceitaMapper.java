@@ -17,8 +17,6 @@ public class ReceitaMapper {
     private final IngredienteMapper ingredienteMapper;
     private final PassoMapper passoMapper;
 
-
-
     public Receita toEntity(ReceitaRequisicaoDto requisicao) {
         return Receita.builder()
                 .nome(requisicao.nome())
@@ -33,7 +31,7 @@ public class ReceitaMapper {
                         .toList())
                 .build();
     }
-    public ReceitaRespostaDto toDto(Receita receita) {
+    public ReceitaRespostaDto toDTO(Receita receita) {
         return new ReceitaRespostaDto(
                 receita.getId(),
                 receita.getNome(),
@@ -50,7 +48,7 @@ public class ReceitaMapper {
                         .toList()
         );
     }
-    public List<ReceitaRespostaDto> toList(List<Receita> receitas){
-        return receitas.stream().map(this::toDto).toList();
+    public List<ReceitaRespostaDto> toDTOList(List<Receita> receitas){
+        return receitas.stream().map(this::toDTO).toList();
     }
 }
