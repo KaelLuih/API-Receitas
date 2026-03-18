@@ -30,9 +30,4 @@ public class Ingrediente {
     @JoinColumn(name = "receita_id")
     private Receita receita;
 
-
-    public Ingrediente(String nome, double quantidade) {
-        this.nome = nome;
-        this.quantidade = quantidade;
-    }
 }
