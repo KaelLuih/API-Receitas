@@ -1,6 +1,8 @@
 package br.com.weg.receitas.application.usuario.dto;
 
-public record UsuarioRequisicaoDto(long id,
+public record UsuarioRequisicaoDto(
                                    String nome,
-                                   String email ) {
+                                   String email,
+                                   String senha
+) {
 }
