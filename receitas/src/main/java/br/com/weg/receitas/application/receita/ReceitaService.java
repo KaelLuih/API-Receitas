@@ -11,5 +11,5 @@ public interface ReceitaService {
     ReceitaRespostaDto buscarPorId(Long id);
     ReceitaRespostaDto salvarReceita(ReceitaRequisicaoDto requisicaoDto);
     ReceitaRespostaDto atualizarReceita(Long id, ReceitaRequisicaoDto requisicaoDto);
-    void deletarReceita(Long id);
+    void deletarPorNome(String nome);
 }

@@ -11,6 +11,7 @@ import br.com.weg.receitas.domain.ingrediente.Ingrediente;
 import br.com.weg.receitas.domain.passo.Passo;
 import br.com.weg.receitas.domain.receita.Receita;
 import br.com.weg.receitas.domain.receita.ReceitaRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -90,10 +91,20 @@ public class ReceitaServiceImpl implements ReceitaService{
     }
 
     @Override
-    public void deletarReceita(Long id) {
-        if(!receitaRepository.existsById(id)){
-            throw new RuntimeException("Receita não encontrada");
+    @Transactional
+    public void deletarPorNome(String nome) {
+        List<Receita> receitas = receitaRepository.findByNome(nome);
+
+        if(receitas.isEmpty()){
+            throw new RuntimeException("Nenhuma receita com esse nome foi encontrada " + nome);
         }
-        receitaRepository.deleteById(id);
+
+        if(receitas.size() > 1){
+            throw new RuntimeException("Existem mais de uma receita com o mesmo nome por questões de segura utilize o id para deletar ");
+        }
+        Long idParaDeletar = receitas.get(0).getId();
+
     }
+
+
 }
