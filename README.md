@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/README/logo-receitas.png" alt="Logo API Receitas" width="400">
+  <img width="779" height="320" alt="unnamed-removebg-preview (1)" src="https://github.com/user-attachments/assets/2252bddc-344c-4b0b-87f5-d9cbe984d6e4" />
 </p>
 
 <h1 align="center">
