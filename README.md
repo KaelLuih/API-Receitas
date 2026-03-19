@@ -73,14 +73,6 @@ Além disso, a API será utilizada futuramente como base para uma aplicação mo
     <img alt="Git" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="40" height="40" />
 </div>
 
-- **Spring Boot** – criação da API REST  
-- **Spring Data JPA** – persistência de dados  
-- **MySQL** – banco de dados relacional  
-- **Maven** – gerenciamento de dependências  
-- **Lombok** – redução de código boilerplate  
-- **Spring Security** – autenticação e segurança  
-- **Git Flow** – organização de branches  
-
 ---
 
 # Como foi Desenvolvido 🤔
