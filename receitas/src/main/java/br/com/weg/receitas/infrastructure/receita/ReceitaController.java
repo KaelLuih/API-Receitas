@@ -1,10 +1,9 @@
 package br.com.weg.receitas.infrastructure.receita;
 
-import br.com.weg.receitas.application.receita.ReceitaServiceImpl;
+import br.com.weg.receitas.application.receita.ReceitaService;
 import br.com.weg.receitas.application.receita.dto.ReceitaRequisicaoDto;
 import br.com.weg.receitas.application.receita.dto.ReceitaRespostaDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 @RequestMapping("/receita")
 public class ReceitaController {
 
-    private ReceitaServiceImpl service;
+    private final ReceitaService service;
 
     @GetMapping("/{id}")
     public ReceitaRespostaDto buscarReceitaID(@PathVariable Long id){

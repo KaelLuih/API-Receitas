@@ -1,11 +1,9 @@
 package br.com.weg.receitas.infrastructure.usuario;
 
-import br.com.weg.receitas.application.usuario.UsuarioServiceImpl;
+import br.com.weg.receitas.application.usuario.UsuarioService;
 import br.com.weg.receitas.application.usuario.dto.UsuarioRequisicaoDto;
 import br.com.weg.receitas.application.usuario.dto.UsuarioRespostaDto;
-import br.com.weg.receitas.domain.usuario.Usuario;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/usuario")
 public class UsuarioController {
 
-    private UsuarioServiceImpl service;
+    private final UsuarioService service;
 
     @GetMapping("/{email}")
     public UsuarioRespostaDto buscarUsuarioID(@PathVariable String email){

@@ -5,7 +5,6 @@ import br.com.weg.receitas.domain.receita.Receita;
 public record IngredienteRespostaDto(
         Long id,
         String nome,
-        Double quantidade,
-        Receita receita
+        Double quantidade
 ) {
 }

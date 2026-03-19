@@ -4,10 +4,7 @@ import br.com.weg.receitas.domain.passo.Passo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -30,8 +27,10 @@ public class PassoService {
         }
     }
 
-    public void ordenarPassos(List<Passo> passos){
-        passos.sort(Comparator.comparingInt(Passo::getOrdem));
+    public List<Passo> ordenarPassos(List<Passo> passos){
+        List<Passo> passosMutaveis = new ArrayList<>(passos);
+        passosMutaveis.sort(Comparator.comparingInt(Passo::getOrdem));
+        return passosMutaveis;
     }
 
     public void processarPassos(List<Passo> passos){

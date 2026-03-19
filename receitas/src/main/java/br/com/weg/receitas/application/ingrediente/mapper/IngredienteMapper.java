@@ -16,6 +16,6 @@ public class IngredienteMapper {
                 .receita(requisicao.receita()).build();
     }
     public IngredienteRespostaDto toDTO(Ingrediente ingrediente){
-        return new IngredienteRespostaDto(ingrediente.getId(),ingrediente.getNome(), ingrediente.getQuantidade(), ingrediente.getReceita());
+        return new IngredienteRespostaDto(ingrediente.getId(),ingrediente.getNome(), ingrediente.getQuantidade());
     }
 }
