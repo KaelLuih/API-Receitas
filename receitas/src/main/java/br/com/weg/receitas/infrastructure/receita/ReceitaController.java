@@ -34,8 +34,8 @@ public class ReceitaController {
         return service.atualizarReceita(id, receita);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarReceita(@PathVariable Long id){
-        service.deletarReceita(id);
+    @DeleteMapping("/nome/{nome}")
+    public void deletarReceita(@PathVariable String nome){
+        service.deletarPorNome(nome);
     }
 }

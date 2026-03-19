@@ -103,7 +103,7 @@ public class ReceitaServiceImpl implements ReceitaService{
             throw new RuntimeException("Existem mais de uma receita com o mesmo nome por questões de segura utilize o id para deletar ");
         }
         Long idParaDeletar = receitas.get(0).getId();
-
+        receitaRepository.deleteById(idParaDeletar);
     }
 
 
