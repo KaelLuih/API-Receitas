@@ -38,4 +38,10 @@ public class ReceitaController {
     public void deletarReceita(@PathVariable String nome){
         service.deletarPorNome(nome);
     }
+    @GetMapping("/filtro/tempo")
+    public List<ReceitaRespostaDto> filtrarPorTempo(
+            @RequestParam Double tempoMin,
+            @RequestParam Double tempoMax) {
+        return service.findPorTempoPreparo(tempoMin, tempoMax);
+    }
 }

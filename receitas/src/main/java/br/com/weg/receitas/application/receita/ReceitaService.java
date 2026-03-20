@@ -12,4 +12,5 @@ public interface ReceitaService {
     ReceitaRespostaDto salvarReceita(ReceitaRequisicaoDto requisicaoDto);
     ReceitaRespostaDto atualizarReceita(Long id, ReceitaRequisicaoDto requisicaoDto);
     void deletarPorNome(String nome);
+    List<ReceitaRespostaDto> findPorTempoPreparo(Double tempoMin, Double tempoMax);
 }

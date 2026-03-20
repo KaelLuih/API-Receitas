@@ -9,7 +9,7 @@ import java.util.List;
 public record ReceitaRequisicaoDto(
         String nome,
         String descricao,
-        String tempoPreparo,
+        Double tempoPreparo,
         Double porcoes,
         List<IngredienteRequisicaoDto> ingredientes,
         List<PassoRequisicaoDto> passos

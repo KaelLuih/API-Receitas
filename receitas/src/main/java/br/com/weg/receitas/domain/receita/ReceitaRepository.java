@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface ReceitaRepository extends JpaRepository<Receita, Long> {
     List<Receita> findByNome(String nome);
+    List<Receita> findByTempoPreparoBetween(Double tempoMin,Double tempoMax);
 }

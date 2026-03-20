@@ -106,5 +106,20 @@ public class ReceitaServiceImpl implements ReceitaService{
         receitaRepository.deleteById(idParaDeletar);
     }
 
+    @Override
+    public List<ReceitaRespostaDto> findPorTempoPreparo(Double tempoMin, Double tempoMax) {
+        if(tempoMin > tempoMax){
+            throw new RuntimeException("Tempo minimo nao pode ser maior que o tempo maximo");
+        }
+        List<Receita> receitas = receitaRepository.findByTempoPreparoBetween(tempoMin,tempoMax);
+
+        if(receitas.isEmpty()){
+            throw new RuntimeException("Nenhuma receita esta entre esse espaço de tempo");
+        }
+        return receitaMapper.toDTOList(receitas);
+
+
+    }
+
 
 }
