@@ -20,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     public UsuarioRespostaDto criarUsuario(UsuarioRequisicaoDto requisicaoDto) {
         if(repository.existsByEmail(requisicaoDto.email())){
-            throw new RuntimeException("Email de usuário já cadastrado");
+            throw new RuntimeException("Email de usuário já cadastrado!");
         }
         Usuario usuario = mapper.toEntity(requisicaoDto);
         usuario.setSenha(passwordEncoder.encode(requisicaoDto.senha()));
@@ -30,6 +30,6 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Override
     public UsuarioRespostaDto buscarPorEmail(String email) {
         return mapper.toDTO(repository.findByEmail(email)
-                .orElseThrow(() -> new RuntimeException("Usuário não encontrado")));
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado!")));
     }
 }
