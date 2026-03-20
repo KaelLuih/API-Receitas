@@ -11,10 +11,10 @@ import java.util.*;
 public class PassoService {
     public void validarPasso(Passo passo){
         if(passo.getDescricao() == null || passo.getDescricao().isBlank()){
-            throw new RuntimeException("Passo deve ter descrição");
+            throw new RuntimeException("Passo deve ter descrição!");
         }
         if(passo.getOrdem() == null || passo.getOrdem() <= 0){
-            throw new RuntimeException("Ordem do passo deve ser maior que 0");
+            throw new RuntimeException("Ordem do passo deve ser maior que 0!");
         }
     }
 
@@ -35,7 +35,7 @@ public class PassoService {
 
     public void processarPassos(List<Passo> passos){
         if(passos == null || passos.isEmpty()){
-            throw new RuntimeException("Receita deve ter pelo menos um passo");
+            throw new RuntimeException("Receita deve ter pelo menos um passo!");
         }
         passos.forEach(this::validarPasso);
         validarOrdemUnica(passos);
