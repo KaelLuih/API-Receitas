@@ -37,7 +37,7 @@ public class ReceitaMapper {
                 receita.getNome(),
                 receita.getDescricao(),
                 receita.getTempoPreparo(),
-                String.valueOf(receita.getPorcoes()),
+                (receita.getPorcoes()),
 
                 receita.getIngredientes().stream()
                         .map(ingredienteMapper::toDTO)

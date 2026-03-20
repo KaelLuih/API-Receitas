@@ -9,7 +9,11 @@ public interface ReceitaService {
 
     List<ReceitaRespostaDto> listarReceitas();
     ReceitaRespostaDto buscarPorId(Long id);
+    List<ReceitaRespostaDto> buscarPorNome(String nome);
+    List<ReceitaRespostaDto> buscarPorPorcao(double porcao);
+    List<ReceitaRespostaDto> buscarPorIngrediente(String ingrediente);
     ReceitaRespostaDto salvarReceita(ReceitaRequisicaoDto requisicaoDto);
     ReceitaRespostaDto atualizarReceita(Long id, ReceitaRequisicaoDto requisicaoDto);
-    void deletarReceita(Long id);
+    void deletarPorNome(String nome);
+    List<ReceitaRespostaDto> findPorTempoPreparo(Double tempoMin, Double tempoMax);
 }

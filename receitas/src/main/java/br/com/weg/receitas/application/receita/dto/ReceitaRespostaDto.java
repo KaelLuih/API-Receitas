@@ -9,8 +9,8 @@ public record ReceitaRespostaDto(
         Long id,
         String nome,
         String descricao,
-        String tempoPreparo,
-        String porcoes,
+        Double tempoPreparo,
+        Double porcoes,
         List<IngredienteRespostaDto> ingredienteRespostaDtoList,
         List<PassoRepostaDto> PassoRepostaDto
 ) {
