@@ -156,15 +156,15 @@ http://localhost:8080
 <table align="center">
   <tr>
     <td align="center" width="160" height="200" style="border:2px solid #ccc;">
-      <img src="assets/README/Elis.png" width="115" height="115"><br>
+      <img src="https://avatars.githubusercontent.com/u/187458159?v=4" width="115" height="115"><br>
       <sub><a href="https://github.com/Liiiiisssz">Elis Jasper</a><br><span style="color:#32CD32"><b>⚙️ Backend</b></span></sub>
     </td>
     <td align="center" width="160" height="200" style="border:2px solid #ccc;">
-      <img src="assets/README/Kael.png" width="115" height="115"><br>
+      <img src="https://avatars.githubusercontent.com/u/189893504?v=4" width="115" height="115"><br>
       <sub><a href="https://github.com/KaelLuih">Kael Luih de Araujo</a><br><span style="color:#FF69B4"><b>⚙️ Backend</b></span></sub>
     </td>
     <td align="center" width="160" height="200" style="border:2px solid #ccc;">
-      <img src="assets/README/Maria.png" width="115" height="115"><br>
+      <img src="https://avatars.githubusercontent.com/u/197654928?v=4" width="115" height="115"><br>
       <sub><a href="https://github.com/Dudazabel">Maria E. Zabel</a><br><span style="color:#32CD32"><b>⚙️ Backend</b></span></sub>
     </td>
   </tr>
