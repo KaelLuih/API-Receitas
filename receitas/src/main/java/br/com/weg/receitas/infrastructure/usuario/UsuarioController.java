@@ -14,7 +14,7 @@ public class UsuarioController {
     private final UsuarioService service;
 
     @GetMapping("/{email}")
-    public UsuarioRespostaDto buscarUsuarioID(@PathVariable String email){
+    public UsuarioRespostaDto buscarUsuarioEmail(@PathVariable String email){
         return service.buscarPorEmail(email);
     }
 
