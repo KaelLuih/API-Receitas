@@ -13,7 +13,7 @@ public class IngredienteMapper {
         return Ingrediente.builder()
                 .nome(requisicao.nome())
                 .quantidade(requisicao.quantidade())
-                .receita(requisicao.receita()).build();
+                .build();
     }
     public IngredienteRespostaDto toDTO(Ingrediente ingrediente){
         return new IngredienteRespostaDto(ingrediente.getId(),ingrediente.getNome(), ingrediente.getQuantidade());
