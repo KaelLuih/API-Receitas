@@ -11,6 +11,7 @@ import br.com.weg.receitas.domain.ingrediente.Ingrediente;
 import br.com.weg.receitas.domain.passo.Passo;
 import br.com.weg.receitas.domain.receita.Receita;
 import br.com.weg.receitas.domain.receita.ReceitaRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -35,7 +36,25 @@ public class ReceitaServiceImpl implements ReceitaService{
     @Override
     public ReceitaRespostaDto buscarPorId(Long id) {
         return receitaMapper.toDTO(receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada")));
+                .orElseThrow(() -> new RuntimeException("Receita não encontrada!")));
+    }
+
+    @Override
+    public List<ReceitaRespostaDto> buscarPorNome(String nome){
+        return receitaMapper.toDTOList(receitaRepository.findByNome(nome));
+    }
+
+    @Override
+    public List<ReceitaRespostaDto> buscarPorPorcao(double porcao){
+        if(porcao <= 0){
+            throw new RuntimeException("A porção deve ter um valor positivo!");
+        }
+        return receitaMapper.toDTOList(receitaRepository.findByPorcao(porcao));
+    }
+
+    @Override
+    public List<ReceitaRespostaDto> buscarPorIngrediente(String ingrediente){
+        return receitaMapper.toDTOList(receitaRepository.findByIngrediente(ingrediente));
     }
 
     @Override
@@ -60,7 +79,7 @@ public class ReceitaServiceImpl implements ReceitaService{
     @Override
     public ReceitaRespostaDto atualizarReceita(Long id, ReceitaRequisicaoDto requisicaoDto) {
         Receita receita = receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada"));
+                .orElseThrow(() -> new RuntimeException("Receita não encontrada!"));
 
         receita.setNome(requisicaoDto.nome());
         receita.setDescricao(requisicaoDto.descricao());
@@ -90,10 +109,35 @@ public class ReceitaServiceImpl implements ReceitaService{
     }
 
     @Override
-    public void deletarReceita(Long id) {
-        if(!receitaRepository.existsById(id)){
-            throw new RuntimeException("Receita não encontrada");
+    @Transactional
+    public void deletarPorNome(String nome) {
+        List<Receita> receitas = receitaRepository.findByNome(nome);
+
+        if(receitas.isEmpty()){
+            throw new RuntimeException("Nenhuma receita com esse nome foi encontrada! " + nome);
         }
-        receitaRepository.deleteById(id);
+
+        if(receitas.size() > 1){
+            throw new RuntimeException("Existem mais de uma receita com o mesmo nome por questões de segurança utilize o id para deletar! ");
+        }
+        Long idParaDeletar = receitas.get(0).getId();
+        receitaRepository.deleteById(idParaDeletar);
     }
+
+    @Override
+    public List<ReceitaRespostaDto> findPorTempoPreparo(Double tempoMin, Double tempoMax) {
+        if(tempoMin > tempoMax){
+            throw new RuntimeException("Tempo minimo nao pode ser maior que o tempo maximo");
+        }
+        List<Receita> receitas = receitaRepository.findByTempoPreparoBetween(tempoMin,tempoMax);
+
+        if(receitas.isEmpty()){
+            throw new RuntimeException("Nenhuma receita esta entre esse espaço de tempo");
+        }
+        return receitaMapper.toDTOList(receitas);
+
+
+    }
+
+
 }

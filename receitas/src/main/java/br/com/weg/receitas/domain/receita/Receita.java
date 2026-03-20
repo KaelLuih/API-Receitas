@@ -24,7 +24,7 @@ public class Receita {
 
     private String descricao;
 
-    private String tempoPreparo;
+    private Double tempoPreparo;
 
     private Double porcoes;
 
