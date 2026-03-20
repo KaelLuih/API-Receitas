@@ -36,7 +36,25 @@ public class ReceitaServiceImpl implements ReceitaService{
     @Override
     public ReceitaRespostaDto buscarPorId(Long id) {
         return receitaMapper.toDTO(receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada")));
+                .orElseThrow(() -> new RuntimeException("Receita não encontrada!")));
+    }
+
+    @Override
+    public List<ReceitaRespostaDto> buscarPorNome(String nome){
+        return receitaMapper.toDTOList(receitaRepository.findByNome(nome));
+    }
+
+    @Override
+    public List<ReceitaRespostaDto> buscarPorPorcao(double porcao){
+        if(porcao <= 0){
+            throw new RuntimeException("A porção deve ter um valor positivo!");
+        }
+        return receitaMapper.toDTOList(receitaRepository.findByPorcao(porcao));
+    }
+
+    @Override
+    public List<ReceitaRespostaDto> buscarPorIngrediente(String ingrediente){
+        return receitaMapper.toDTOList(receitaRepository.findByIngrediente(ingrediente));
     }
 
     @Override
@@ -61,7 +79,7 @@ public class ReceitaServiceImpl implements ReceitaService{
     @Override
     public ReceitaRespostaDto atualizarReceita(Long id, ReceitaRequisicaoDto requisicaoDto) {
         Receita receita = receitaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Receita não encontrada"));
+                .orElseThrow(() -> new RuntimeException("Receita não encontrada!"));
 
         receita.setNome(requisicaoDto.nome());
         receita.setDescricao(requisicaoDto.descricao());
@@ -96,11 +114,11 @@ public class ReceitaServiceImpl implements ReceitaService{
         List<Receita> receitas = receitaRepository.findByNome(nome);
 
         if(receitas.isEmpty()){
-            throw new RuntimeException("Nenhuma receita com esse nome foi encontrada " + nome);
+            throw new RuntimeException("Nenhuma receita com esse nome foi encontrada! " + nome);
         }
 
         if(receitas.size() > 1){
-            throw new RuntimeException("Existem mais de uma receita com o mesmo nome por questões de segura utilize o id para deletar ");
+            throw new RuntimeException("Existem mais de uma receita com o mesmo nome por questões de segurança utilize o id para deletar! ");
         }
         Long idParaDeletar = receitas.get(0).getId();
         receitaRepository.deleteById(idParaDeletar);
