@@ -49,12 +49,12 @@ public class ReceitaServiceImpl implements ReceitaService{
         if(porcao <= 0){
             throw new RuntimeException("A porção deve ter um valor positivo!");
         }
-        return receitaMapper.toDTOList(receitaRepository.findByPorcao(porcao));
+        return receitaMapper.toDTOList(receitaRepository.findByPorcoes(porcao));
     }
 
     @Override
     public List<ReceitaRespostaDto> buscarPorIngrediente(String ingrediente){
-        return receitaMapper.toDTOList(receitaRepository.findByIngrediente(ingrediente));
+        return receitaMapper.toDTOList(receitaRepository.findByIngredientes_Nome(ingrediente));
     }
 
     @Override
