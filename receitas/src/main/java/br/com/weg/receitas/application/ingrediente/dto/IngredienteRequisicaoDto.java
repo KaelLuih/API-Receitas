@@ -10,6 +10,6 @@ public record IngredienteRequisicaoDto(
         String nome,
         @NotNull
         @Positive
-        Double quantidade
+        String quantidade
 ) {
 }
