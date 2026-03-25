@@ -13,8 +13,6 @@ public interface ReceitaRepository extends JpaRepository<Receita, Long> {
     List<Receita> findByNome(String nome);
     List<Receita> findByTempoPreparoBetween(Double tempoMin,Double tempoMax);
 
-    List<Receita> findByPorcao(double porcao);
-
-    List<Receita> findByIngrediente(@Param("nomeIngrediente") String nomeIngrediente);
-
+    List<Receita> findByPorcoes(double porcao);
+    List<Receita> findByIngredientes_Nome(String nomeIngrediente);
 }
