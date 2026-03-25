@@ -21,7 +21,7 @@ public class Ingrediente {
     String nome;
 
     @Column(nullable = false)
-    double quantidade;
+    String quantidade;
 
     @ManyToOne
     @JoinColumn(name = "receita_id")
