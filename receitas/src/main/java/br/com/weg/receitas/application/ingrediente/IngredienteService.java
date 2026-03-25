@@ -12,8 +12,6 @@ public class IngredienteService{
         if(ingrediente.getNome() == null || ingrediente.getNome().isBlank()){
             throw new RuntimeException("Ingrediente deve ter nome!");
         }
-        if(ingrediente.getQuantidade() < 1){
-            throw new RuntimeException("Quantidade inválida!");
-        }
+
     }
 }
