@@ -10,10 +10,10 @@ public class IngredienteService{
 
     public void validarIngrediente(Ingrediente ingrediente) {
         if(ingrediente.getNome() == null || ingrediente.getNome().isBlank()){
-            throw new RuntimeException("Ingrediente deve ter nome");
+            throw new RuntimeException("Ingrediente deve ter nome!");
         }
         if(ingrediente.getQuantidade() < 1){
-            throw new RuntimeException("Quantidade inválida");
+            throw new RuntimeException("Quantidade inválida!");
         }
     }
 }

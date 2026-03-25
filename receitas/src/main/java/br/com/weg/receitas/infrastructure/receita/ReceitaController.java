@@ -19,6 +19,21 @@ public class ReceitaController {
     public ReceitaRespostaDto buscarReceitaID(@PathVariable Long id){
         return service.buscarPorId(id);
     }
+
+    @GetMapping("/{nome}")
+    public List<ReceitaRespostaDto> buscarReceitasPorNome(@PathVariable String nome){
+        return service.buscarPorNome(nome);
+    }
+
+    @GetMapping("/{porcao}")
+    public List<ReceitaRespostaDto> buscarReceitasPorPorcao(@PathVariable double porcao){
+        return service.buscarPorPorcao(porcao);
+    }
+
+    @GetMapping("/{ingrediente}")
+    public List<ReceitaRespostaDto> buscarReceitasPorIngrediente(@PathVariable String ingrediente){
+        return service.buscarPorIngrediente(ingrediente);
+    }
     @GetMapping
     public List<ReceitaRespostaDto> listarReceitas(){
         return service.listarReceitas();
@@ -34,8 +49,14 @@ public class ReceitaController {
         return service.atualizarReceita(id, receita);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarReceita(@PathVariable Long id){
-        service.deletarReceita(id);
+    @DeleteMapping("/nome/{nome}")
+    public void deletarReceita(@PathVariable String nome){
+        service.deletarPorNome(nome);
+    }
+    @GetMapping("/filtro/tempo")
+    public List<ReceitaRespostaDto> filtrarPorTempo(
+            @RequestParam Double tempoMin,
+            @RequestParam Double tempoMax) {
+        return service.findPorTempoPreparo(tempoMin, tempoMax);
     }
 }
