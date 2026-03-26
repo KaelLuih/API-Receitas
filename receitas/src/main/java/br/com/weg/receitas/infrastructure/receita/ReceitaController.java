@@ -20,17 +20,17 @@ public class ReceitaController {
         return service.buscarPorId(id);
     }
 
-    @GetMapping("/{nome}")
+    @GetMapping("/nome/{nome}")
     public List<ReceitaRespostaDto> buscarReceitasPorNome(@PathVariable String nome){
         return service.buscarPorNome(nome);
     }
 
-    @GetMapping("/{porcao}")
+    @GetMapping("/porcao/{porcao}")
     public List<ReceitaRespostaDto> buscarReceitasPorPorcao(@PathVariable double porcao){
         return service.buscarPorPorcao(porcao);
     }
 
-    @GetMapping("/{ingrediente}")
+    @GetMapping("/ingrediente/{ingrediente}")
     public List<ReceitaRespostaDto> buscarReceitasPorIngrediente(@PathVariable String ingrediente){
         return service.buscarPorIngrediente(ingrediente);
     }
