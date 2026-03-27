@@ -3,6 +3,7 @@ package br.com.weg.receitas.infrastructure.receita;
 import br.com.weg.receitas.application.receita.ReceitaService;
 import br.com.weg.receitas.application.receita.dto.ReceitaRequisicaoDto;
 import br.com.weg.receitas.application.receita.dto.ReceitaRespostaDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,12 +41,12 @@ public class ReceitaController {
     }
 
     @PostMapping
-    public ReceitaRespostaDto adicionarReceita(@RequestBody ReceitaRequisicaoDto receita){
+    public ReceitaRespostaDto adicionarReceita(@RequestBody @Valid ReceitaRequisicaoDto receita){
         return service.salvarReceita(receita);
     }
 
     @PutMapping("/{id}")
-    public ReceitaRespostaDto atualizarReceita(@PathVariable Long id, @RequestBody ReceitaRequisicaoDto receita){
+    public ReceitaRespostaDto atualizarReceita(@PathVariable Long id, @RequestBody @Valid ReceitaRequisicaoDto receita){
         return service.atualizarReceita(id, receita);
     }
 
