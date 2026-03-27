@@ -45,11 +45,11 @@ public class ReceitaServiceImpl implements ReceitaService{
     }
 
     @Override
-    public List<ReceitaRespostaDto> buscarPorPorcao(double porcao){
-        if(porcao <= 0){
+    public List<ReceitaRespostaDto> buscarPorPorcao(double min,double max){
+        if(min <= 0){
             throw new RuntimeException("A porção deve ter um valor positivo!");
         }
-        return receitaMapper.toDTOList(receitaRepository.findByPorcoes(porcao));
+        return receitaMapper.toDTOList(receitaRepository.findByPorcoes( min, max));
     }
 
     @Override
