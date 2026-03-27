@@ -26,9 +26,10 @@ public class ReceitaController {
         return service.buscarPorNome(nome);
     }
 
-    @GetMapping("/porcao/{porcao}")
-    public List<ReceitaRespostaDto> buscarReceitasPorPorcao(@PathVariable double porcao){
-        return service.buscarPorPorcao(porcao);
+    @GetMapping("/porcao/filtro")
+    public List<ReceitaRespostaDto> buscarReceitasPorPorcao(@RequestParam double min,
+                                                            @RequestParam double max){
+        return service.buscarPorPorcao(min,max);
     }
 
     @GetMapping("/ingrediente/{ingrediente}")
