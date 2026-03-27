@@ -61,4 +61,5 @@ public class ReceitaController {
             @RequestParam Double tempoMax) {
         return service.findPorTempoPreparo(tempoMin, tempoMax);
     }
+
 }
