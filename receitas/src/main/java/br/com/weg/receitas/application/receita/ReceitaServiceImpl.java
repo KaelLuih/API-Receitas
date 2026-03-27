@@ -49,7 +49,7 @@ public class ReceitaServiceImpl implements ReceitaService{
         if(min <= 0){
             throw new RuntimeException("A porção deve ter um valor positivo!");
         }
-        return receitaMapper.toDTOList(receitaRepository.findByPorcoes( min, max));
+        return receitaMapper.toDTOList(receitaRepository.findByPorcoesBetween( min, max));
     }
 
     @Override
