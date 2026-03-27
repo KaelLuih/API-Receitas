@@ -3,6 +3,7 @@ package br.com.weg.receitas.infrastructure.usuario;
 import br.com.weg.receitas.application.usuario.UsuarioService;
 import br.com.weg.receitas.application.usuario.dto.UsuarioRequisicaoDto;
 import br.com.weg.receitas.application.usuario.dto.UsuarioRespostaDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public UsuarioRespostaDto adicionarUsuario(@RequestBody UsuarioRequisicaoDto usuario){
+    public UsuarioRespostaDto adicionarUsuario(@RequestBody @Valid UsuarioRequisicaoDto usuario){
         return service.criarUsuario(usuario);
     }
 }
