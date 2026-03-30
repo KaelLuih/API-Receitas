@@ -8,8 +8,7 @@ import jakarta.validation.constraints.Positive;
 public record IngredienteRequisicaoDto(
         @NotBlank
         String nome,
-        @NotNull
-        @Positive
+        @NotBlank
         String quantidade
 ) {
 }

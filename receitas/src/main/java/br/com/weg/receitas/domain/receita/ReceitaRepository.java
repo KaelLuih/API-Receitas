@@ -8,11 +8,11 @@ import java.util.List;
 @Repository
 public interface ReceitaRepository extends JpaRepository<Receita, Long> {
 
-    List<Receita> findByNome(String nome);
+    List<Receita> findByNomeContainingIgnoreCase(String nome);
 
     List<Receita> findByTempoPreparoBetween(Double tempoMin,Double tempoMax);
 
-    List<Receita> findByPorcoes(double min,double max);
+    List<Receita> findByPorcoesBetween(double min, double max);
 
-    List<Receita> findByIngredientes_Nome(@Param("nomeIngrediente") String nomeIngrediente);
+    List<Receita> findByIngredientes_NomeContainingIgnoreCase(@Param("nomeIngrediente") String nomeIngrediente);
 }
