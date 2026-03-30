@@ -51,10 +51,11 @@ public class ReceitaController {
         return service.atualizarReceita(id, receita);
     }
 
-    @DeleteMapping("/nome/{nome}")
-    public void deletarReceita(@PathVariable String nome){
-        service.deletarPorNome(nome);
+    @DeleteMapping("/{id}")
+    public void deletarReceita(@PathVariable Long id){
+        service.deletar(id);
     }
+
     @GetMapping("/filtro/tempo")
     public List<ReceitaRespostaDto> filtrarPorTempo(
             @RequestParam Double tempoMin,
