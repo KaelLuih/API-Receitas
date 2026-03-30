@@ -41,7 +41,7 @@ public class ReceitaServiceImpl implements ReceitaService{
 
     @Override
     public List<ReceitaRespostaDto> buscarPorNome(String nome){
-        return receitaMapper.toDTOList(receitaRepository.findByNome(nome));
+        return receitaMapper.toDTOList(receitaRepository.findByNomeContainingIgnoreCase(nome));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class ReceitaServiceImpl implements ReceitaService{
 
     @Override
     public List<ReceitaRespostaDto> buscarPorIngrediente(String ingrediente){
-        return receitaMapper.toDTOList(receitaRepository.findByIngredientes_Nome(ingrediente));
+        return receitaMapper.toDTOList(receitaRepository.findByIngredientes_NomeContainingIgnoreCase(ingrediente));
     }
 
     @Override
@@ -110,18 +110,11 @@ public class ReceitaServiceImpl implements ReceitaService{
 
     @Override
     @Transactional
-    public void deletarPorNome(String nome) {
-        List<Receita> receitas = receitaRepository.findByNome(nome);
-
-        if(receitas.isEmpty()){
-            throw new RuntimeException("Nenhuma receita com esse nome foi encontrada! " + nome);
+    public void deletar(Long id) {
+        if(!receitaRepository.existsById(id)){
+            throw new RuntimeException("Receita não existe, erro ao deletar");
         }
-
-        if(receitas.size() > 1){
-            throw new RuntimeException("Existem mais de uma receita com o mesmo nome por questões de segurança utilize o id para deletar! ");
-        }
-        Long idParaDeletar = receitas.get(0).getId();
-        receitaRepository.deleteById(idParaDeletar);
+        receitaRepository.deleteById(id);
     }
 
     @Override
