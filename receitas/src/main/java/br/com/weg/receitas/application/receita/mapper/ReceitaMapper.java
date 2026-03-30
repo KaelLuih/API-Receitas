@@ -23,6 +23,7 @@ public class ReceitaMapper {
                 .descricao(requisicao.descricao())
                 .tempoPreparo(requisicao.tempoPreparo())
                 .porcoes(requisicao.porcoes())
+                .foto(requisicao.foto())
                 .ingredientes(requisicao.ingredientes().stream()
                         .map(ingredienteMapper::toEntity)
                         .toList())
@@ -38,6 +39,7 @@ public class ReceitaMapper {
                 receita.getDescricao(),
                 receita.getTempoPreparo(),
                 (receita.getPorcoes()),
+                receita.getFoto(),
 
                 receita.getIngredientes().stream()
                         .map(ingredienteMapper::toDTO)
