@@ -1,7 +1,7 @@
 package br.com.weg.receitas.application.usuario.mapper;
 
-import br.com.weg.receitas.application.usuario.dto.UsuarioRequisicaoDto;
-import br.com.weg.receitas.application.usuario.dto.UsuarioRespostaDto;
+import br.com.weg.receitas.application.usuario.dto.cadastro.UsuarioRequisicaoDto;
+import br.com.weg.receitas.application.usuario.dto.cadastro.UsuarioRespostaDto;
 import br.com.weg.receitas.domain.usuario.Usuario;
 import org.springframework.stereotype.Component;
 
