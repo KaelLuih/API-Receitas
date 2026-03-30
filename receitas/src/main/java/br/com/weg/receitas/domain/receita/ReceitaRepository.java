@@ -15,4 +15,7 @@ public interface ReceitaRepository extends JpaRepository<Receita, Long> {
     List<Receita> findByPorcoesBetween(double min, double max);
 
     List<Receita> findByIngredientes_NomeContainingIgnoreCase(@Param("nomeIngrediente") String nomeIngrediente);
+
+
+
 }
