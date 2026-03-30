@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="C:\Users\maria_e_zabel\StudioProjects\Front-Receitas\app\src\main\res\drawable\logo.png" alt="Logo API Receitas" width="400">
+  <img src="./assets/README/logo.png" alt="Logo API Receitas" width="400">
 </p>
 
 <h1 align="center">
