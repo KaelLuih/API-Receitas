@@ -1,6 +1,6 @@
 package br.com.weg.receitas.application.receita;
 
-import br.com.weg.receitas.application.ingrediente.IngredienteService;
+import br.com.weg.receitas.application.ingrediente.IngredienteServiceImpl;
 import br.com.weg.receitas.application.ingrediente.mapper.IngredienteMapper;
 import br.com.weg.receitas.application.passo.PassoService;
 import br.com.weg.receitas.application.passo.mapper.PassoMapper;
@@ -22,7 +22,7 @@ import java.util.List;
 public class ReceitaServiceImpl implements ReceitaService{
 
     private final ReceitaRepository receitaRepository;
-    private final IngredienteService ingredienteService;
+    private final IngredienteServiceImpl ingredienteService;
     private final PassoService passoService;
     private final ReceitaMapper receitaMapper;
     private final IngredienteMapper ingredienteMapper;

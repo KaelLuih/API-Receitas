@@ -1,17 +1,13 @@
 package br.com.weg.receitas.application.ingrediente;
 
-import br.com.weg.receitas.domain.ingrediente.Ingrediente;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-@Service
-@RequiredArgsConstructor
-public class IngredienteService{
+import java.util.List;
 
-    public void validarIngrediente(Ingrediente ingrediente) {
-        if(ingrediente.getNome() == null || ingrediente.getNome().isBlank()){
-            throw new RuntimeException("Ingrediente deve ter nome!");
-        }
+public interface IngredienteService {
+List<String>listarIngredientesUnicos();
 
-    }
+
 }
+
+
