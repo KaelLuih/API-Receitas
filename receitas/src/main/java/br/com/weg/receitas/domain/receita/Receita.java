@@ -29,7 +29,7 @@ public class Receita {
     private Double porcoes;
 
     @Lob
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "LONGTEXT")
     private String foto;
 
     @OneToMany(mappedBy = "receita", cascade = CascadeType.ALL, orphanRemoval = true)

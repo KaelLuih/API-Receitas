@@ -12,7 +12,7 @@ public record ReceitaRespostaDto(
         Double tempoPreparo,
         Double porcoes,
         String foto,
-        List<IngredienteRespostaDto> ingredienteRespostaDtoList,
-        List<PassoRepostaDto> PassoRepostaDto
+        List<IngredienteRespostaDto> ingredientes,
+        List<PassoRepostaDto> passos
 ) {
 }
