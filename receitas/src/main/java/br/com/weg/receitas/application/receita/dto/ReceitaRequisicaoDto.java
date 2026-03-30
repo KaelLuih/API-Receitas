@@ -22,6 +22,7 @@ public record ReceitaRequisicaoDto(
         @NotNull
         @Positive
         Double porcoes,
+        String foto,
         @NotNull
         @Valid
         @NotEmpty

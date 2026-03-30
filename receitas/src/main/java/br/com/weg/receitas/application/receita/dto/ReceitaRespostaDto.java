@@ -11,6 +11,7 @@ public record ReceitaRespostaDto(
         String descricao,
         Double tempoPreparo,
         Double porcoes,
+        String foto,
         List<IngredienteRespostaDto> ingredienteRespostaDtoList,
         List<PassoRepostaDto> PassoRepostaDto
 ) {
