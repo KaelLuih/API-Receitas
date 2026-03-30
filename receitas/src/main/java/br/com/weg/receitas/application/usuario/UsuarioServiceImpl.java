@@ -1,7 +1,8 @@
 package br.com.weg.receitas.application.usuario;
 
-import br.com.weg.receitas.application.usuario.dto.UsuarioRequisicaoDto;
-import br.com.weg.receitas.application.usuario.dto.UsuarioRespostaDto;
+import br.com.weg.receitas.application.usuario.dto.cadastro.UsuarioRequisicaoDto;
+import br.com.weg.receitas.application.usuario.dto.cadastro.UsuarioRespostaDto;
+import br.com.weg.receitas.application.usuario.dto.login.LoginRequisicaoDto;
 import br.com.weg.receitas.application.usuario.mapper.UsuarioMapper;
 import br.com.weg.receitas.domain.usuario.Usuario;
 import br.com.weg.receitas.domain.usuario.UsuarioRepository;
@@ -31,5 +32,20 @@ public class UsuarioServiceImpl implements UsuarioService{
     public UsuarioRespostaDto buscarPorEmail(String email) {
         return mapper.toDTO(repository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado!")));
+    }
+
+    @Override
+    public UsuarioRespostaDto login(LoginRequisicaoDto login){
+        Usuario usuario = repository.findByEmail(login.email())
+                .orElseThrow(() -> new RuntimeException("Email não encontrado!"));
+        if(!passwordEncoder.matches(login.senha(), usuario.getSenha())){
+            throw new RuntimeException("Senha incorreta!");
+        }
+
+        return new UsuarioRespostaDto(
+                usuario.getId(),
+                usuario.getNome(),
+                usuario.getEmail()
+        );
     }
 }
