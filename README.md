@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./assets/README/logo.png" alt="Logo API Receitas" width="400">
+  <img src="/receitas/assets/README/logotitulo.png" alt="Logo API Receitas" width="400">
 </p>
 
 <h1 align="center">
-API Livro de Receitas 🍲📚
+API Livro de Receitas 
 </h1>
 
 <p align="center">
