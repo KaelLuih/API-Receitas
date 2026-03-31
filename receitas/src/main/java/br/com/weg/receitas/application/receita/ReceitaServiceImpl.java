@@ -88,6 +88,7 @@ public class ReceitaServiceImpl implements ReceitaService{
 
         receita.getIngredientes().clear();
         receita.getPassos().clear();
+        receita.setFoto(requisicaoDto.foto());
 
         requisicaoDto.ingredientes().forEach(ingredienteDTO -> {
             Ingrediente ingrediente = ingredienteMapper.toEntity(ingredienteDTO);
