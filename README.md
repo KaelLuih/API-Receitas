@@ -7,11 +7,11 @@ API Livro de Receitas
 </h1>
 
 <p align="center">
-👩‍💻 Desenvolvido para gerenciamento de receitas e usuários
+👩‍💻 Desenvolvido para gerenciamento de receitas, usuários e ingredientes
 </p>
 
 <p align="center">
-<img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=EM-DESENVOLVIMENTO&color=GREEN&style=for-the-badge"/>
+<img loading="lazy" src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>
 </p>
 
 ---
@@ -21,7 +21,9 @@ API Livro de Receitas
 A **API Livro de Receitas** foi desenvolvida com o objetivo de fornecer uma estrutura back-end robusta para gerenciamento de receitas culinárias.
 
 O sistema permite que usuários cadastrem, visualizem, atualizem e removam receitas, funcionando como um “livrinho digital de receitas”.  
-Além disso, a API será utilizada futuramente como base para uma aplicação mobile em **Kotlin**, garantindo escalabilidade e reutilização.
+Além disso, a API também gerencia usuários e oferece filtros avançados de busca por receitas.
+
+O projeto será utilizado futuramente como base para uma aplicação mobile em **Kotlin**, garantindo escalabilidade e reutilização.
 
 ---
 
@@ -38,7 +40,23 @@ Além disso, a API será utilizada futuramente como base para uma aplicação mo
             <td>🔎</td>
         </tr>
         <tr>
-            <td>Listagem de todas as receitas (feed)</td>
+            <td>Busca de receitas por nome</td>
+            <td>🔤</td>
+        </tr>
+        <tr>
+            <td>Filtro por tempo de preparo</td>
+            <td>⏱️</td>
+        </tr>
+        <tr>
+            <td>Filtro por quantidade de porções</td>
+            <td>🍽️</td>
+        </tr>
+        <tr>
+            <td>Filtro por ingrediente</td>
+            <td>🥕</td>
+        </tr>
+        <tr>
+            <td>Listagem de receitas</td>
             <td>📋</td>
         </tr>
         <tr>
@@ -50,12 +68,20 @@ Além disso, a API será utilizada futuramente como base para uma aplicação mo
             <td>🗑️</td>
         </tr>
         <tr>
+            <td>Listagem de ingredientes únicos</td>
+            <td>📦</td>
+        </tr>
+        <tr>
             <td>Cadastro de usuários</td>
             <td>👤</td>
         </tr>
         <tr>
             <td>Busca de usuário por email</td>
             <td>📧</td>
+        </tr>
+        <tr>
+            <td>Login de usuário</td>
+            <td>🔐</td>
         </tr>
     </tbody>
 </table>
@@ -80,16 +106,16 @@ Além disso, a API será utilizada futuramente como base para uma aplicação mo
 O desenvolvimento da API foi estruturado em camadas, seguindo boas práticas de arquitetura back-end:
 
 **Controller 📡**  
-Responsável por expor os endpoints da API, permitindo a comunicação com o cliente.
+Responsável por expor os endpoints da API.
 
 **Service ⚙️**  
-Contém as regras de negócio, validações e processamento dos dados.
+Contém as regras de negócio e validações.
 
 **Repository 💾**  
-Responsável pela comunicação com o banco de dados utilizando JPA.
+Responsável pela comunicação com o banco via JPA.
 
 **Model 📦**  
-Define as entidades principais do sistema, como **Usuário** e **Receita**.
+Define as entidades do sistema: **Usuário**, **Receita**.
 
 ---
 
@@ -97,27 +123,39 @@ Define as entidades principais do sistema, como **Usuário** e **Receita**.
 
 ## 📌 Receita
 
-- **POST /receitas** → Cadastrar receita  
-- **GET /receitas** → Listar todas as receitas  
-- **GET /receitas/{id}** → Buscar receita por ID  
-- **PUT /receitas/{id}** → Atualizar receita  
-- **DELETE /receitas/{id}** → Remover receita  
+- **POST /receita** → Cadastrar receita  
+- **GET /receita** → Listar todas as receitas  
+- **GET /receita/{id}** → Buscar receita por ID  
+- **GET /receita/nome/{nome}** → Buscar receitas por nome  
+- **GET /receita/ingrediente/{ingrediente}** → Buscar receitas por ingrediente  
+- **GET /receita/porcao/filtro?min={min}&max={max}** → Filtrar por porções  
+- **GET /receita/filtro/tempo?tempoMin={min}&tempoMax={max}** → Filtrar por tempo de preparo  
+- **PUT /receita/{id}** → Atualizar receita  
+- **DELETE /receita/{id}** → Remover receita  
 
 ---
 
 ## 👤 Usuário
 
-- **POST /usuarios** → Cadastrar usuário  
-- **GET /usuarios/email/{email}** → Buscar usuário por email  
+- **POST /usuario** → Cadastrar usuário  
+- **POST /usuario/login** → Login de usuário  
+- **GET /usuario/{email}** → Buscar usuário por email  
+
+---
+
+## 🥕 Ingredientes
+
+- **GET /ingrediente** → Listar ingredientes únicos cadastrados  
 
 ---
 
 # Futuro do Projeto 🚀
 
-- Integração com aplicativo mobile em **Kotlin** 📱    
+- Integração com aplicativo mobile em **Kotlin** 📱  
 - Upload de imagens para receitas  
 - Sistema de favoritos e curtidas  
-- Melhorias na segurança e autenticação (JWT)
+- Implementação de autenticação com JWT  
+- Melhorias em segurança e controle de acesso  
 
 ---
 
@@ -127,7 +165,7 @@ Para rodar o projeto na sua máquina, siga os passos abaixo:
 
 ## 1️⃣ Clone o repositório:
 ```bash
-git clone https://github.com/seu-repositorio/api-receitas.git
+git clone https://github.com/KaelLuih/API-Receitas.git
 ```
 ## 2️⃣ Acesse a pasta do projeto:
 ```bash
@@ -146,7 +184,7 @@ mvn spring-boot:run
 ## 4️⃣ A API estará disponível em:
 
 ```bash
-http://localhost:8080
+https://api-receitas-pb3e.onrender.com/
 ```
 
 ---
