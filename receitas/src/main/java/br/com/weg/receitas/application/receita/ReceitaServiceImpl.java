@@ -125,9 +125,6 @@ public class ReceitaServiceImpl implements ReceitaService{
         }
         List<Receita> receitas = receitaRepository.findByTempoPreparoBetween(tempoMin,tempoMax);
 
-        if(receitas.isEmpty()){
-            throw new RuntimeException("Nenhuma receita esta entre esse espaço de tempo");
-        }
         return receitaMapper.toDTOList(receitas);
 
 
